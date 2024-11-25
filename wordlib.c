@@ -97,7 +97,8 @@ bIsWordFileWithOLE(FILE *pFile, long lFilesize)
 	default:	/* Wrong filesize for a Word document */
 		DBG_DEC(lFilesize);
 		DBG_DEC(iTailLen);
-		return FALSE;
+		DBG_DEC("Damn, Ignoring extra bytes for some weird doc file");
+		break;
 	}
 	return bCheckBytes(pFile, aucBytes, elementsof(aucBytes));
 } /* end of bIsWordFileWithOLE */
